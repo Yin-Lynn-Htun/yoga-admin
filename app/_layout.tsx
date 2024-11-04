@@ -24,6 +24,15 @@ export default function RootLayout() {
     'Poppins-Regular': require('../assets/fonts/Poppins-Regular.ttf'),
     'Poppins-SemiBold': require('../assets/fonts/Poppins-SemiBold.ttf'),
     'Poppins-Thin': require('../assets/fonts/Poppins-Thin.ttf'),
+    'DMSans-Black': require('../assets/fonts/DMSans-Black.ttf'),
+    'DMSans-Bold': require('../assets/fonts/DMSans-Bold.ttf'),
+    'DMSans-ExtraBold': require('../assets/fonts/DMSans-ExtraBold.ttf'),
+    'DMSans-ExtraLight': require('../assets/fonts/DMSans-ExtraLight.ttf'),
+    'DMSans-Light': require('../assets/fonts/DMSans-Light.ttf'),
+    'DMSans-Medium': require('../assets/fonts/DMSans-Medium.ttf'),
+    'DMSans-Regular': require('../assets/fonts/DMSans-Regular.ttf'),
+    'DMSans-SemiBold': require('../assets/fonts/DMSans-SemiBold.ttf'),
+    'DMSans-Thin': require('../assets/fonts/DMSans-Thin.ttf'),
   })
 
   useEffect(() => {

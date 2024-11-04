@@ -57,8 +57,8 @@
 //           <View className="flex my-6 px-4 space-y-6">
 //             <View className="flex justify-between items-start flex-row mb-6">
 //               <View>
-//                 <Text className="font-pmedium text-sm text-gray-100">Welcome Back</Text>
-//                 <Text className="text-2xl font-psemibold text-white">{userProfile?.username || 'User'}</Text>
+//                 <Text className="font-dmedium text-sm text-gray-100">Welcome Back</Text>
+//                 <Text className="text-2xl font-dsemibold text-black">{userProfile?.username || 'User'}</Text>
 //               </View>
 
 //               <View className="mt-1.5">
@@ -67,7 +67,7 @@
 //             </View>
 
 //             <View className="w-full flex-1 pt-5 pb-8">
-//               <Text className="text-lg font-pregular text-gray-100 mb-3">Latest Videos</Text>
+//               <Text className="text-lg font-dregular text-gray-100 mb-3">Latest Videos</Text>
 //               <Trending posts={data} />
 //             </View>
 //           </View>

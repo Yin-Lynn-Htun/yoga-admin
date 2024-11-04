@@ -16,7 +16,7 @@ const TabIcon = ({ icon, color, name, focused }: Props) => {
   return (
     <View className="flex items-center justify-center gap-2">
       <Image source={icon} resizeMode="contain" tintColor={color} className="w-6 h-6" />
-      <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs`} style={{ color: color }}>
+      <Text className={`${focused ? 'font-dsemibold' : 'font-dregular'} text-xs`} style={{ color: color }}>
         {name}
       </Text>
     </View>
@@ -48,11 +48,11 @@ const TabsLayout = () => {
     <>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: '#FFA001',
-          tabBarInactiveTintColor: '#CDCDE0',
+          tabBarActiveTintColor: '#BBF246',
+          tabBarInactiveTintColor: '#ffffff7e',
           tabBarShowLabel: false,
           tabBarStyle: {
-            backgroundColor: '#161622',
+            backgroundColor: '#192126',
             borderTopWidth: 1,
             borderTopColor: '#232533',
             height: 84,
@@ -72,7 +72,7 @@ const TabsLayout = () => {
               //       <Ionicons name="cart-outline" size={24} color="black" />
               //       {getCartCount() > 0 && (
               //         <View className="absolute -top-2 -right-2 bg-red-500 rounded-full w-5 h-5 flex items-center justify-center">
-              //           <Text className="text-white text-xs">{getCartCount()}</Text>
+              //           <Text className="text-black text-xs">{getCartCount()}</Text>
               //         </View>
               //       )}
               //     </View>
@@ -84,11 +84,11 @@ const TabsLayout = () => {
                     <Image source={tab.icon} resizeMode="contain" tintColor={color} className="w-6 h-6" />
                     {getCartCount() > 0 && (
                       <View className="absolute -top-2 -right-2 bg-red-500 rounded-full min-w-5 h-5 flex items-center justify-center px-1">
-                        <Text className="text-white text-xs font-bold">{getCartCount()}</Text>
+                        <Text className="text-black text-xs font-bold">{getCartCount()}</Text>
                       </View>
                     )}
                     <Text
-                      className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs`}
+                      className={`${focused ? 'font-dsemibold' : 'font-dregular'} text-xs`}
                       style={{ color: color }}
                     >
                       {tab.title}

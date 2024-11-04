@@ -28,7 +28,7 @@ const CartItem = (item: any) => {
 
         <View className="flex-1">
           <View className="flex-row justify-between items-center">
-            <Text className="text-white font-psemibold text-lg">{item.className}</Text>
+            <Text className="text-black font-dsemibold text-lg">{item.className}</Text>
             <TouchableOpacity
               onPress={() => removeFromCart(item.id.toString())}
               // className="bg-red-500 h-[40px] w-[40px] rounded-full flex justify-center items-center"
@@ -39,15 +39,15 @@ const CartItem = (item: any) => {
 
           <View>
             <View className="flex flex-row gap-3 items-center mb-2">
-              <Fontisto name="date" size={16} color="white" />
-              <Text className="text-gray-300">
+              <Fontisto name="date" size={16} color="black" />
+              <Text className="text-gray-500">
                 {getShortDay(item.course?.dayOfWeek)}, {formatTimestampToDate(item.date)}
               </Text>
             </View>
 
             <View className="flex flex-row gap-3 items-center">
-              <Ionicons name="pricetag-sharp" size={20} color="white" />
-              <Text className="text-gray-300">£{item.course?.pricePerClass}</Text>
+              <Ionicons name="pricetag-sharp" size={20} color="black" />
+              <Text className="text-gray-500">£{item.course?.pricePerClass}</Text>
             </View>
           </View>
         </View>
@@ -78,7 +78,7 @@ const CartScreen = () => {
           }}
           ListHeaderComponent={() => (
             <View className="flex my-6 px-4 space-y-6">
-              <Text className="text-lg font-pregular text-gray-100">Your Cart</Text>
+              <Text className="text-lg font-dregular text-gray-500">Your Cart</Text>
             </View>
           )}
         />
@@ -92,11 +92,11 @@ const CartScreen = () => {
               }}
             >
               <View className="flex flex-row justify-between">
-                <Text className="bg-white px-3 rounded-lg text-secondary text-center font-psemibold">
+                <Text className="bg-black px-3 rounded-lg text-secondary text-center font-dsemibold">
                   {cartItems.length}
                 </Text>
-                <Text className="text-white text-center font-psemibold">Proceed to Checkout</Text>
-                <Text className="text-white text-center font-psemibold">£{totalPrice}</Text>
+                <Text className="text-black text-center font-dsemibold">Proceed to Checkout</Text>
+                <Text className="text-black text-center font-dsemibold">£{totalPrice}</Text>
               </View>
             </TouchableOpacity>
           </View>

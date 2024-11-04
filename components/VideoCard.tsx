@@ -18,10 +18,10 @@ const VideoCard = ({ title, creator, avatar, thumbnail, video }: Props) => {
           </View>
 
           <View className="flex justify-center flex-1 ml-3 gap-y-1">
-            <Text className="font-psemibold text-sm text-white" numberOfLines={1}>
+            <Text className="font-dsemibold text-sm text-black" numberOfLines={1}>
               {title}
             </Text>
-            <Text className="text-xs text-gray-100 font-pregular" numberOfLines={1}>
+            <Text className="text-xs text-gray-100 font-dregular" numberOfLines={1}>
               {creator}
             </Text>
           </View>

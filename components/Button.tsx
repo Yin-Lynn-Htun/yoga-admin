@@ -50,7 +50,7 @@ export const Button = ({
       case 'secondary':
         return 'text-gray-800'
       default:
-        return 'text-white'
+        return 'text-black'
     }
   }
 
@@ -82,7 +82,7 @@ export const Button = ({
       `}
     >
       {loading && (
-        <ActivityIndicator size="small" color={variant === 'secondary' ? '#1F2937' : '#FFFFFF'} className="mr-2" />
+        <ActivityIndicator size="small" color={variant === 'secondary' ? '#1F2937' : '#BBF246'} className="mr-2" />
       )}
       <Text
         className={`

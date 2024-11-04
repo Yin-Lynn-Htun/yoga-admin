@@ -78,9 +78,7 @@ const SignUp = () => {
             minHeight: Dimensions.get('window').height - 100,
           }}
         >
-          <Image source={images.logo} resizeMode="contain" className="w-[115px] h-[34px]" />
-
-          <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">Sign Up to Aora</Text>
+          <Text className="text-2xl font-semibold text-black mt-10 font-dsemibold">Sign Up</Text>
           {passwordError && <Text className="text-red-400 mt-4">{passwordError}</Text>}
 
           <FormField
@@ -118,8 +116,8 @@ const SignUp = () => {
           <CustomButton title="Sign Up" handlePress={handleSignup} containerStyles="mt-7" isLoading={isSubmitting} />
 
           <View className="flex justify-center pt-5 flex-row gap-2">
-            <Text className="text-lg text-gray-100 font-pregular">Have an account already?</Text>
-            <Link href="/sign-in" className="text-lg font-psemibold text-secondary">
+            <Text className="text-base text-gray-500 font-dregular">Have an account already?</Text>
+            <Link href="/sign-in" className="text-lg font-dsemibold text-secondary">
               Login
             </Link>
           </View>

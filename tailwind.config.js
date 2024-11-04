@@ -5,15 +5,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#161622',
+        primary: '#FFFFFF',
         secondary: {
-          DEFAULT: '#FF9C01',
-          100: '#FF9001',
-          200: '#FF8E01',
+          DEFAULT: '#BBF246',
+          100: '#BBF246',
+          200: '#BBF246',
         },
         black: {
           DEFAULT: '#000',
-          100: '#1E1E2D',
+          100: '#192126',
           200: '#232533',
         },
         gray: {
@@ -30,6 +30,15 @@ module.exports = {
         pbold: ['Poppins-Bold', 'sans-serif'],
         pextrabold: ['Poppins-ExtraBold', 'sans-serif'],
         pblack: ['Poppins-Black', 'sans-serif'],
+        dthin: ['DMSans-Thin', 'sans-serif'],
+        dextralight: ['DMSans-ExtraLight', 'sans-serif'],
+        dlight: ['DMSans-Light', 'sans-serif'],
+        dregular: ['DMSans-Regular', 'sans-serif'],
+        dmedium: ['DMSans-Medium', 'sans-serif'],
+        dsemibold: ['DMSans-SemiBold', 'sans-serif'],
+        dbold: ['DMSans-Bold', 'sans-serif'],
+        dextrabold: ['DMSans-ExtraBold', 'sans-serif'],
+        dblack: ['DMSans-Black', 'sans-serif'],
       },
     },
   },

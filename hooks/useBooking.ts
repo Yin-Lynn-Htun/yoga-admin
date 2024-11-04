@@ -41,7 +41,7 @@ export const useCreateBooking = () => {
     await Promise.all(bookingPromises)
     clearCart()
 
-    Alert.alert('Success', 'Your booking has been confirmed!')
+    Alert.alert('Success', 'You have successfully booked classes!')
   }
 
   return createBooking

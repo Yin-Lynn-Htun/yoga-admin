@@ -53,19 +53,19 @@ const FilterBottomSheet = React.forwardRef(
         onChange={handleSheetChanges}
         ref={ref as any}
         containerStyle={{
-          backgroundColor: '#161622',
+          backgroundColor: '#0000007a',
         }}
       >
-        <BottomSheetView className="h-max border-2 bg-primary p-4 borde">
+        <BottomSheetView className="h-max bg-primary p-4">
           <View className="flex flex-col">
             <View className="flex-row justify-between items-center mb-6">
-              <Text className="text-xl font-semibold text-white">Filters</Text>
+              <Text className="text-xl font-semibold text-black">Filters</Text>
               <TouchableOpacity onPress={clearFilters}>
-                <Text className="text-blue-400">Clear All</Text>
+                <Text className="text-black">Clear All</Text>
               </TouchableOpacity>
             </View>
 
-            <Text className="text-lg font-medium text-white mb-4">Days of Week</Text>
+            <Text className="text-lg font-medium text-black mb-4">Days of Week</Text>
             <View className="flex-row flex-wrap gap-2 mb-6">
               {DAYS_OF_WEEK.map((day) => (
                 <TouchableOpacity
@@ -75,12 +75,12 @@ const FilterBottomSheet = React.forwardRef(
                     selectedDays.includes(day) ? 'bg-secondary' : 'border-gray-400'
                   }`}
                 >
-                  <Text className={`${selectedDays.includes(day) ? 'text-white' : 'text-gray-300'}`}>{day}</Text>
+                  <Text className={`${selectedDays.includes(day) ? 'text-black' : 'text-gray-500'}`}>{day}</Text>
                 </TouchableOpacity>
               ))}
             </View>
 
-            <Text className="text-lg font-medium text-white mb-4">Time of Day</Text>
+            <Text className="text-lg font-medium text-black mb-4">Time of Day</Text>
             <View className="flex-row flex-wrap gap-2 mb-6">
               {TIME_OF_DAY.map((time) => (
                 <TouchableOpacity
@@ -90,13 +90,13 @@ const FilterBottomSheet = React.forwardRef(
                     selectedTimes.includes(time) ? 'bg-secondary' : 'border-gray-400'
                   }`}
                 >
-                  <Text className={`${selectedTimes.includes(time) ? 'text-white' : 'text-gray-300'}`}>{time}</Text>
+                  <Text className={`${selectedTimes.includes(time) ? 'text-black' : 'text-gray-500'}`}>{time}</Text>
                 </TouchableOpacity>
               ))}
             </View>
 
             <TouchableOpacity onPress={handleApply} className="bg-secondary py-3 rounded-lg mt-auto">
-              <Text className="text-white text-center font-semibold">Apply Filters</Text>
+              <Text className="text-black text-center font-semibold">Apply Filters</Text>
             </TouchableOpacity>
           </View>
         </BottomSheetView>
@@ -152,12 +152,10 @@ const Class = () => {
   if (loading) {
     return (
       <SafeAreaView className="bg-primary min-h-full flex justify-center items-center">
-        <ActivityIndicator size="large" color="white" />
+        <ActivityIndicator size="large" color="black" />
       </SafeAreaView>
     )
   }
-
-  console.log(filteredClasses, 'filteredClasses')
 
   return (
     <SafeAreaView className="bg-primary min-h-full">
@@ -168,7 +166,7 @@ const Class = () => {
             // data={[{ id: 'header' }]}
             stickyHeaderIndices={[0]}
             keyExtractor={(item: any) => item?.id}
-            ListEmptyComponent={() => <EmptyState title="No Classes Found" />}
+            ListEmptyComponent={() => <EmptyState type="class" title="No Classes Found" />}
             renderItem={({ item }: { item: ClassWithCourseAndBooking | { id: string } }) => {
               return (
                 <ClassItem key={item.id} {...(item as ClassWithCourseAndBooking)} course={(item as YogaClass).course} />
@@ -188,7 +186,7 @@ const Class = () => {
 
                     <TouchableOpacity onPress={handlePresentModalPress}>
                       <View className="relative">
-                        <Feather name="filter" size={26} color="white" />
+                        <Feather name="filter" size={26} color="black" />
                         {(activeFilters.selectedDays.length > 0 || activeFilters.selectedTimes.length > 0) && (
                           <View className="absolute -top-2 -right-2 w-3 h-3 bg-blue-500 rounded-full" />
                         )}

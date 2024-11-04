@@ -23,14 +23,14 @@ const Index = () => {
         }}
       >
         <View className="w-full flex justify-center items-center h-full px-4">
-          <Image source={images.logo} className="w-[130px] h-[84px]" resizeMode="contain" />
+          {/* <Image source={images.logo} className="w-[130px] h-[84px]" resizeMode="contain" /> */}
+          <Text className="text-3xl font-dsemibold text-secondary font-bold text-center">Universal Yoga</Text>
 
-          <Image source={images.cards} className="max-w-[380px] w-full h-[298px]" resizeMode="contain" />
+          <Image source={images.onboarding} className="w-full border-2 h-[500px]" resizeMode="contain" />
 
           <View className="relative mt-5">
-            <Text className="text-3xl text-white font-bold text-center">
-              Discover Endless{'\n'}
-              Possibilities with <Text className="text-secondary-200">Aora</Text>
+            <Text className="text-3xl font-dregular text-black font-bold text-center">
+              Start with Fresh <Text className="text-secondary-200">Mind!</Text>
             </Text>
 
             <Image
@@ -40,23 +40,19 @@ const Index = () => {
             />
           </View>
 
-          <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
-            Where Creativity Meets Innovation: Embark on a Journey of Limitless Exploration with Aora
-          </Text>
-
           {!loading && (
             <CustomButton
               title="Continue with Email"
               handlePress={() => {
                 router.push('/sign-in')
               }}
-              containerStyles="w-full mt-7"
+              containerStyles="w-full mt-10"
             />
           )}
         </View>
       </ScrollView>
 
-      <StatusBar backgroundColor="#161622" style="light" />
+      <StatusBar backgroundColor="#BBF246" style="light" />
     </SafeAreaView>
   )
 }

@@ -14,15 +14,15 @@ const CustomButton = ({ title, handlePress, containerStyles, textStyles, isLoadi
     <TouchableOpacity
       onPress={handlePress}
       activeOpacity={0.7}
-      className={`bg-secondary rounded-xl min-h-[62px] gap-3 flex flex-row justify-center items-center ${containerStyles}`}
+      className={`bg-secondary rounded-xl py-4 gap-3 flex flex-row justify-center items-center ${containerStyles}`}
       disabled={isLoading}
     >
       {isLoading && (
         <View>
-          <ActivityIndicator className="text-primary scale-125" />
+          <ActivityIndicator className="text-black-100 scale-125" />
         </View>
       )}
-      <Text className={`text-primary font-psemibold text-lg ${textStyles}`}>{title}</Text>
+      <Text className={`text-black font-dsemibold text-base ${textStyles}`}>{title}</Text>
     </TouchableOpacity>
   )
 }

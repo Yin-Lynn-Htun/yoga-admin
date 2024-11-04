@@ -43,35 +43,35 @@ const ClassItem = ({
         </View>
 
         <View className="flex flex-row mt-5 gap-3 items-start px-3">
-          <View className="flex flex-col text-white flex-1 gap-3">
+          <View className="flex flex-col text-black flex-1 gap-3">
             <View className="flex items-center flex-row gap-3 ">
-              <Text className="font-psemibold text-sm text-white">{course?.timeOfCourse}</Text>
-              <View className="w-[2px] h-4/5 bg-white"></View>
-              <Text className="font-psemibold text-sm text-gray-300">{course?.duration} mins</Text>
+              <Text className="font-dsemibold text-sm text-black">{course?.timeOfCourse}</Text>
+              <View className="w-[2px] h-4/5 bg-black"></View>
+              <Text className="font-dsemibold text-sm text-gray-400">{course?.duration} mins</Text>
             </View>
 
             <View className="flex flex-row justify-between items-center flex-1 gap-y-1">
-              <Text className="font-psemibold text-sm text-white">{className}</Text>
-              <Text className="font-psemibold text-sm text-white">
+              <Text className="font-dsemibold text-sm text-black">{className}</Text>
+              <Text className="font-dsemibold text-sm text-black">
                 {course?.capacity - totalBookings} / {course?.capacity} left
               </Text>
-              {/* <Text className="font-psemibold text-sm text-white">course?.capacity - totalbooking / {course?.capacity} left</Text> */}
+              {/* <Text className="font-dsemibold text-sm text-black">course?.capacity - totalbooking / {course?.capacity} left</Text> */}
             </View>
 
             <View className="flex gap-3 flex-row items-center">
               <View className="w-[24px] h-[24px] flex justify-center items-center rounded-full">
-                <Fontisto name="date" size={16} color="white" />
+                <Fontisto name="date" size={16} color="black" />
               </View>
-              <Text className="font-pregular text-sm text-white">
+              <Text className="font-dregular text-sm text-black">
                 {course?.dayOfWeek}, {formatTimestampToDate(date)}
               </Text>
             </View>
 
             <View className="flex gap-3 flex-row items-center">
               <View className="w-[24px] h-[24px] flex justify-center items-center rounded-full">
-                <Fontisto name="person" size={16} color="white" />
+                <Fontisto name="person" size={16} color="black" />
               </View>
-              <Text className="font-pregular text-sm text-white">{teacher}</Text>
+              <Text className="font-dregular text-sm text-black">{teacher}</Text>
             </View>
           </View>
         </View>
@@ -82,7 +82,7 @@ const ClassItem = ({
             onPress={() => removeFromCart(id.toString())}
             className="w-full bg-secondary-100 py-2 rounded-xl mt-3 relative flex justify-center items-center"
           >
-            <Text className="text-white text-sm font-psemibold">Remove from Cart</Text>
+            <Text className="text-black text-sm font-dsemibold">Remove from Cart</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
@@ -90,7 +90,7 @@ const ClassItem = ({
             onPress={handleAddToCart}
             className="w-full bg-secondary-100 py-2 rounded-xl mt-3 relative flex justify-center items-center"
           >
-            <Text className="text-white text-sm font-psemibold">Add to Cart</Text>
+            <Text className="text-black text-sm font-dsemibold">Add to Cart</Text>
           </TouchableOpacity>
         )}
       </View>

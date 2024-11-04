@@ -15,7 +15,7 @@ const BookingsScreen = () => {
         <ScrollView>
           {bookings.map((booking) => (
             <View key={booking.id} className="bg-primary-800 rounded-xl p-4 mb-4">
-              <Text className="text-white font-psemibold">Booking ID: {booking.id}</Text>
+              <Text className="text-black font-dsemibold">Booking ID: {booking.id}</Text>
               <Text className="text-gray-300">Class ID: {booking.classId}</Text>
               <Text className="text-gray-300">Booked on: {new Date(booking.createdAt).toLocaleDateString()}</Text>
             </View>
