@@ -22,7 +22,7 @@ const SignIn = () => {
     setSubmitting(true)
     try {
       await login(form.email, form.password)
-      router.push('/home')
+      router.push('/class')
     } catch (err: any) {
       Alert.alert('Error', err.message)
     }

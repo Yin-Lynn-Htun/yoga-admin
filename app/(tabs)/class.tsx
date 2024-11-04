@@ -5,7 +5,7 @@ import useClass from '@/hooks/useClass'
 import { Feather } from '@expo/vector-icons'
 import { BottomSheetModal, BottomSheetModalProvider, BottomSheetView, useBottomSheetModal } from '@gorhom/bottom-sheet'
 import React, { useCallback, useRef, useState } from 'react'
-import { FlatList, RefreshControl, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, FlatList, RefreshControl, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -149,6 +149,16 @@ const Class = () => {
     bottomSheetModalRef.current?.present()
   }, [])
 
+  if (loading) {
+    return (
+      <SafeAreaView className="bg-primary min-h-full flex justify-center items-center">
+        <ActivityIndicator size="large" color="white" />
+      </SafeAreaView>
+    )
+  }
+
+  console.log(filteredClasses, 'filteredClasses')
+
   return (
     <SafeAreaView className="bg-primary min-h-full">
       <GestureHandlerRootView className="flex-1 bg-primary">
@@ -159,8 +169,10 @@ const Class = () => {
             stickyHeaderIndices={[0]}
             keyExtractor={(item: any) => item?.id}
             ListEmptyComponent={() => <EmptyState title="No Classes Found" />}
-            renderItem={({ item }: { item: YogaClass | { id: string } }) => {
-              return <ClassItem key={item.id} {...(item as YogaClass)} course={(item as YogaClass).course} />
+            renderItem={({ item }: { item: ClassWithCourseAndBooking | { id: string } }) => {
+              return (
+                <ClassItem key={item.id} {...(item as ClassWithCourseAndBooking)} course={(item as YogaClass).course} />
+              )
             }}
             ListHeaderComponent={() => (
               <View className="bg-primary">
@@ -206,7 +218,6 @@ const isWithinTimeRange = (classTime: string, timeRange: string): boolean => {
   if (isNaN(hours) || isNaN(minutes)) {
     return false
   }
-  console.log(hours, timeRange, 'hours')
 
   switch (timeRange) {
     case 'Morning (5AM-12PM)':

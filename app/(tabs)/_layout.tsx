@@ -25,12 +25,6 @@ const TabIcon = ({ icon, color, name, focused }: Props) => {
 
 const TABS = [
   {
-    title: 'Home',
-    component: 'home',
-    icon: icons.home,
-  },
-
-  {
     title: 'Class',
     component: 'class',
     icon: icons.classImg,

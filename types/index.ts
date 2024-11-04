@@ -8,6 +8,10 @@ type YogaClass = {
   course: Course
 }
 
+type ClassWithCourseAndBooking = YogaClass & {
+  totalBookings: number
+}
+
 type Course = {
   capacity: number
   courseName: string
@@ -34,4 +38,16 @@ type Booking = {
 
 type BookingWithClass = Booking & {
   class: Omit<YogaClass, 'Course'>
+}
+
+interface ClassDetail {
+  availableSpots: number
+  className: string
+  comments: string
+  course: Course
+  courseId: number
+  date: number // Consider using Date if you want to handle date objects
+  id: number
+  teacher: string
+  totalBookings: number
 }

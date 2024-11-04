@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, FlatList, TextInput, Alert } from 'react-native'
+import { View, Text, TouchableOpacity, Image, FlatList, TextInput, Alert, ActivityIndicator } from 'react-native'
 import React, { useCallback, useRef, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import EmptyState from '@/components/EmptyState'
@@ -91,6 +91,14 @@ const profile = () => {
     } catch (error) {
       console.error('Logout error:', error)
     }
+  }
+
+  if (isLoading) {
+    return (
+      <SafeAreaView className="bg-primary h-full flex justify-center items-center">
+        <ActivityIndicator size="large" color="white" />
+      </SafeAreaView>
+    )
   }
 
   return (

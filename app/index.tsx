@@ -12,7 +12,7 @@ const Index = () => {
   const { user, loading } = useAuth()
 
   if (!loading && user) {
-    return <Redirect href={'/home'} />
+    return <Redirect href={'/class'} />
   }
 
   return (
