@@ -16,7 +16,7 @@ const FormField = ({
   handleChangeText: (text: string) => void
   placeholder?: string
   otherStyles?: string
-  keyboardType?: 'default' | 'number-pad' | 'decimal-pad' | 'numeric' | 'email-address' | 'phone-pad'
+  keyboardType?: 'default' | 'number-pad' | 'decimal-pad' | 'numeric' | 'email-address' | 'phone-pad' | 'password'
   props?: any
 }) => {
   const [showPassword, setShowPassword] = useState(false)
@@ -36,7 +36,7 @@ const FormField = ({
           {...props}
         />
 
-        {title === 'Password' && (
+        {keyboardType === 'password' && (
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Image source={!showPassword ? icons.eye : icons.eyeHide} className="w-6 h-6" resizeMode="contain" />
           </TouchableOpacity>

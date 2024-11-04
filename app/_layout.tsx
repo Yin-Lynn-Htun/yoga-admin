@@ -5,6 +5,10 @@ import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react'
 import 'react-native-reanimated'
 import '../global.css'
+import { Client, Account, ID } from 'react-native-appwrite'
+import GlobalProvider from '@/contexts/GlobalProvider'
+import { AuthProvider } from '@/contexts/AuthContext'
+import { CartProvider } from '@/contexts/CartContext'
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync()
@@ -23,6 +27,10 @@ export default function RootLayout() {
   })
 
   useEffect(() => {
+    const client = new Client().setProject('6727048e002c193fc027').setPlatform('com.yinlynnhtun.aora')
+  }, [])
+
+  useEffect(() => {
     if (error) throw error
 
     if (fontsLoaded) {
@@ -33,9 +41,14 @@ export default function RootLayout() {
   if (!fontsLoaded && !error) return null
 
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-    </Stack>
+    <AuthProvider>
+      <CartProvider>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
+      </CartProvider>
+    </AuthProvider>
   )
 }

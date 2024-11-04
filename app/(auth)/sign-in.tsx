@@ -1,20 +1,34 @@
-import { View, Text, ScrollView, Dimensions, Image } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, ScrollView, Dimensions, Image, Alert } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { images } from '@/constants'
 import CustomButton from '@/components/CustomButton'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 import FormField from '@/components/FormField'
+import React, { useState } from 'react'
+import { signIn } from '@/lib/appwrite'
+import { useAuthentication } from '@/hooks/useAuthentication'
 
 const SignIn = () => {
-  const submit = () => {}
-
   const [form, setForm] = useState({
     email: '',
     password: '',
   })
 
-  const isSubmitting = false
+  const [isSubmitting, setSubmitting] = useState(false)
+
+  const { login, error, loading } = useAuthentication()
+
+  const handleLogin = async () => {
+    setSubmitting(true)
+    try {
+      await login(form.email, form.password)
+      router.push('/home')
+    } catch (err: any) {
+      Alert.alert('Error', err.message)
+    }
+    setSubmitting(false)
+  }
+
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
@@ -43,12 +57,12 @@ const SignIn = () => {
             otherStyles="mt-7"
           />
 
-          <CustomButton title="Sign In" handlePress={submit} containerStyles="mt-7" isLoading={isSubmitting} />
+          <CustomButton title="Sign In" handlePress={handleLogin} containerStyles="mt-7" isLoading={isSubmitting} />
 
           <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-gray-100 font-pregular">Don't have an account?</Text>
             <Link href="/sign-up" className="text-lg font-psemibold text-secondary">
-              Signup
+              Sign up
             </Link>
           </View>
         </View>
