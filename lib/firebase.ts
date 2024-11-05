@@ -35,7 +35,7 @@ const handleSubmitReview = async (
       classId,
       rating,
       review: review.trim(),
-      createdAt: serverTimestamp(),
+      createdAt: Date.now(),
     }
 
     // Add document to 'reviews' collection

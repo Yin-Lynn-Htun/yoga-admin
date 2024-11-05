@@ -25,25 +25,17 @@ const BookingItem = ({ item }: { item: BookingWithClass }) => {
 
   const handleSubmit = async (rating: number, review: string, bookingId: string, classId: number) => {
     try {
-      console.log(
-        {
-          rating,
-          review,
-          classId,
-          userId: user?.uid!,
-          bookingId,
-        },
-        'iddds'
-      )
       await handleSubmitReview(rating, review, classId, user?.uid!, bookingId)
     } catch (error) {
       Alert.alert('Error', 'Failed to submit review. Please try again.')
     }
   }
 
+  if (!item || !item.class) return null
+
   return (
     <>
-      <View className="bg-primary-800 rounded-xl p-4 mb-4 flex-row gap-2">
+      <View className="bg-primary-800 rounded-xl px-4 py-6 flex-row gap-2 border-b-[1px] border-gray-400">
         <View className="flex-1">
           <Text className="text-black font-dsemibold">{item.class.className}</Text>
           <View className="flex gap-3 flex-row items-center">
@@ -116,20 +108,18 @@ const profile = () => {
                   <Image source={icons.logout} resizeMode="contain" className="w-6 h-6" tintColor={'black'} />
                 </TouchableOpacity>
 
-                <View className="w-24 h-24 rounded-full border border-secondary flex justify-center items-center">
-                  <Image
-                    source={{
-                      uri: 'https://plus.unsplash.com/premium_photo-1671656349218-5218444643d8?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                    }}
-                    className="w-[90%] h-[90%] rounded-full"
-                    resizeMode="cover"
-                  />
+                <View className="w-24 h-24 rounded-full border border-secondary flex justify-center items-center p-2">
+                  <View className="bg-secondary w-full h-full rounded-full flex justify-center items-center">
+                    <Text className="text-white font-dbold text-2xl">
+                      {userProfile?.username?.charAt(0).toUpperCase()}
+                    </Text>
+                  </View>
                 </View>
 
-                <InfoBox title={userProfile?.username ?? ''} containerStyles="mt-5  " titleStyles="text-lg" />
+                <InfoBox title={userProfile?.username ?? ''} containerStyles="mt-3" titleStyles="text-lg" />
                 <InfoBox title={userProfile?.email ?? ''} titleStyles="text-gray-400" />
 
-                <Text className="font-dsemibold text-lg self-start mt-10 text-black">Your bookings</Text>
+                <Text className="font-dbold text-xl self-start mt-10 text-black">Your bookings</Text>
               </View>
             )}
           />
