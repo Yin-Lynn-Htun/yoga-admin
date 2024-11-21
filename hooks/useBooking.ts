@@ -1,4 +1,3 @@
-// firebase/bookings.ts
 import { useAuth } from '@/contexts/AuthContext'
 import { useCart } from '@/contexts/CartContext'
 import { db } from '@/firebaseConfig'
@@ -74,25 +73,30 @@ export const useFetchBooking = () => {
   const { user } = useAuth()
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    const loadBookings = async () => {
-      if (!user) return
+  const loadBookings = async () => {
+    if (!user) return
 
-      try {
-        const userBookings = await getUserBookings(user.uid)
-        setBookings(userBookings)
-      } catch (error) {
-        Alert.alert('Error', 'Failed to load bookings')
-      } finally {
-        setIsLoading(false)
-      }
+    try {
+      const userBookings = await getUserBookings(user.uid)
+      setBookings(userBookings)
+    } catch (error) {
+      Alert.alert('Error', 'Failed to load bookings')
+    } finally {
+      setIsLoading(false)
     }
+  }
 
+  useEffect(() => {
     loadBookings()
   }, [])
+
+  const refetchBooking = async () => {
+    loadBookings()
+  }
 
   return {
     bookings,
     isLoading,
+    refetchBooking,
   }
 }

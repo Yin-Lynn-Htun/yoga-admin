@@ -6,13 +6,12 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useAuthentication } from '@/hooks/useAuthentication'
 import { icons } from '@/constants'
 import InfoBox from '@/components/InfoBox'
-import BookingsScreen from '@/components/Booking'
 import { useFetchBooking } from '@/hooks/useBooking'
 import { router } from 'expo-router'
 import { AntDesign, Fontisto } from '@expo/vector-icons'
 import { formatTimestampToDate } from '@/utils'
 import { BottomSheetModal, BottomSheetModalProvider, BottomSheetView, useBottomSheetModal } from '@gorhom/bottom-sheet'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { GestureHandlerRootView, RefreshControl } from 'react-native-gesture-handler'
 import handleSubmitReview from '@/lib/firebase'
 
 const BookingItem = ({ item }: { item: BookingWithClass }) => {
@@ -74,7 +73,15 @@ const BookingItem = ({ item }: { item: BookingWithClass }) => {
 const profile = () => {
   const { userProfile } = useAuth()
   const { logout } = useAuthentication()
-  const { bookings, isLoading } = useFetchBooking()
+  const { bookings, isLoading, refetchBooking } = useFetchBooking()
+  const [isRefreshing, setRefreshing] = React.useState(false)
+
+  const onRefresh = async () => {
+    setRefreshing(true)
+    await refetchBooking()
+
+    setRefreshing(false)
+  }
 
   const handleLogout = async () => {
     try {
@@ -122,6 +129,7 @@ const profile = () => {
                 <Text className="font-dbold text-xl self-start mt-10 text-black">Your bookings</Text>
               </View>
             )}
+            refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />}
           />
         </BottomSheetModalProvider>
       </GestureHandlerRootView>

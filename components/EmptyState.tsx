@@ -1,8 +1,5 @@
-import { router } from 'expo-router'
 import { View, Text, Image } from 'react-native'
-
 import { images } from '../constants'
-import CustomButton from './CustomButton'
 
 const EmptyState = ({ title, subtitle, type }: { title: string; subtitle?: string; type: 'class' | 'cart' }) => {
   return (

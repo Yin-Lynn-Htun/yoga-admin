@@ -1,11 +1,9 @@
 import { View, Text, ScrollView, Dimensions, Image, Alert } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { images } from '@/constants'
 import CustomButton from '@/components/CustomButton'
 import { Link, router } from 'expo-router'
 import FormField from '@/components/FormField'
 import React, { useState } from 'react'
-import { signIn } from '@/lib/appwrite'
 import { useAuthentication } from '@/hooks/useAuthentication'
 
 const SignIn = () => {
@@ -16,7 +14,7 @@ const SignIn = () => {
 
   const [isSubmitting, setSubmitting] = useState(false)
 
-  const { login, error, loading } = useAuthentication()
+  const { login } = useAuthentication()
 
   const handleLogin = async () => {
     setSubmitting(true)
@@ -38,8 +36,6 @@ const SignIn = () => {
             minHeight: Dimensions.get('window').height - 100,
           }}
         >
-          {/* <Image source={images.logo} resizeMode="contain" className="w-[115px] h-[34px]" /> */}
-
           <Text className="text-2xl font-semibold text-black mt-10 font-dsemibold">Log in</Text>
 
           <FormField
@@ -54,6 +50,7 @@ const SignIn = () => {
             title="Password"
             value={form.password}
             handleChangeText={(e) => setForm({ ...form, password: e })}
+            keyboardType="password"
             otherStyles="mt-7"
           />
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { Fontisto, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { formatTimestampToDate } from '@/utils'
 import { router, useLocalSearchParams, useNavigation } from 'expo-router'

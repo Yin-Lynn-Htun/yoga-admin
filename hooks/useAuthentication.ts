@@ -1,4 +1,3 @@
-// src/hooks/useAuthentication.ts
 import { useState } from 'react'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 

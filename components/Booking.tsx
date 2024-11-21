@@ -1,9 +1,6 @@
-import { useAuth } from '@/contexts/AuthContext'
-import { getUserBookings, useFetchBooking } from '@/hooks/useBooking'
-import { useEffect, useState } from 'react'
-import { ActivityIndicator, Alert, ScrollView, Text, View } from 'react-native'
+import { useFetchBooking } from '@/hooks/useBooking'
+import { ActivityIndicator, ScrollView, Text, View } from 'react-native'
 
-// Optional: Bookings Screen to view past bookings
 const BookingsScreen = () => {
   const { bookings, isLoading } = useFetchBooking()
 

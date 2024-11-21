@@ -43,7 +43,6 @@ const FilterBottomSheet = React.forwardRef(
       setSelectedTimes([])
     }
 
-    // callbacks
     const handleSheetChanges = useCallback((index: number) => {
       console.log('handleSheetChanges', index)
     }, [])
@@ -137,7 +136,9 @@ const Class = () => {
         return isWithinTimeRange(classItem.course.timeOfCourse, timeRange)
       })
 
-    const matchesQuery = classItem.className.toLowerCase().includes(searchQuery.toLowerCase())
+    const matchesQuery =
+      classItem.className.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      classItem.teacher.toLowerCase().includes(searchQuery.toLowerCase())
 
     return matchesDay && matchesTime && matchesQuery
   })
@@ -163,7 +164,6 @@ const Class = () => {
         <BottomSheetModalProvider>
           <FlatList
             data={filteredClasses}
-            // data={[{ id: 'header' }]}
             stickyHeaderIndices={[0]}
             keyExtractor={(item: any) => item?.id}
             ListEmptyComponent={() => <EmptyState type="class" title="No Classes Found" />}

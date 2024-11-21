@@ -6,7 +6,6 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import images from '../constants/images'
 import CustomButton from '@/components/CustomButton'
 import { useAuth } from '@/contexts/AuthContext'
-// import { useGlobalContext } from '@/contexts/GlobalProvider'
 
 const Index = () => {
   const { user, loading } = useAuth()

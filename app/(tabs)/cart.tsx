@@ -6,11 +6,11 @@ import { useCreateBooking } from '@/hooks/useBooking'
 import { formatTimestampToDate, getShortDay } from '@/utils'
 import { Fontisto, Ionicons } from '@expo/vector-icons'
 import React, { useState } from 'react'
-import { View, Text, ScrollView, TouchableOpacity, FlatList, RefreshControl, Alert, Image } from 'react-native'
+import { View, Text, TouchableOpacity, FlatList, RefreshControl, Alert, Image } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 const CartItem = (item: any) => {
-  const { cartItems, removeFromCart, clearCart } = useCart()
+  const { removeFromCart } = useCart()
   return (
     <View key={item.id} className=" rounded-xl p-4 mb-4">
       <View className="flex flex-row gap-3">
@@ -29,10 +29,7 @@ const CartItem = (item: any) => {
         <View className="flex-1">
           <View className="flex-row justify-between items-center">
             <Text className="text-black font-dsemibold text-lg">{item.className}</Text>
-            <TouchableOpacity
-              onPress={() => removeFromCart(item.id.toString())}
-              // className="bg-red-500 h-[40px] w-[40px] rounded-full flex justify-center items-center"
-            >
+            <TouchableOpacity onPress={() => removeFromCart(item.id.toString())}>
               <Fontisto name="shopping-basket-remove" size={20} color={'#ef4444'} />
             </TouchableOpacity>
           </View>
@@ -57,7 +54,7 @@ const CartItem = (item: any) => {
 }
 
 const CartScreen = () => {
-  const { cartItems, removeFromCart, clearCart } = useCart()
+  const { cartItems } = useCart()
   const [isLoading, setIsLoading] = useState(false)
   const { user } = useAuth() // Get current user from your auth context
   const createBooking = useCreateBooking()
@@ -72,7 +69,7 @@ const CartScreen = () => {
           className="px-2 py-5 mb-20"
           data={cartItems}
           keyExtractor={(item: any) => item?.id}
-          ListEmptyComponent={() => <EmptyState title="There is no item in your cart!" subtitle="" />}
+          ListEmptyComponent={() => <EmptyState title="There is no item in your cart!" subtitle="" type="cart" />}
           renderItem={({ item }: { item: YogaClass }) => {
             return <CartItem key={item.id} {...item} />
           }}
@@ -95,7 +92,7 @@ const CartScreen = () => {
                 <Text className="bg-black px-3 rounded-lg text-secondary text-center font-dsemibold">
                   {cartItems.length}
                 </Text>
-                <Text className="text-black text-center font-dsemibold">Proceed to Checkout</Text>
+                <Text className="text-black text-center font-dsemibold">Proceed to Book</Text>
                 <Text className="text-black text-center font-dsemibold">£{totalPrice}</Text>
               </View>
             </TouchableOpacity>
